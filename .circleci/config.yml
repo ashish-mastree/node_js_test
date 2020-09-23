@@ -1,0 +1,14 @@
+version: 2.1
+orbs:
+  node: circleci/node@3.0.0
+jobs:
+  build-and-test:
+    executor: node/default
+    steps:
+      - checkout
+      - run: npm install
+      - run: node_modules/.bin/mocha test/
+workflows:
+  node-tests:
+    jobs:
+      - build-and-test
