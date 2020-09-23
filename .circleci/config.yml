@@ -1,0 +1,16 @@
+version: 2.1
+orbs:
+  node: circleci/node@3.0.0
+jobs:
+  unit_test:
+    executor: node/default
+      steps:
+        - checkout
+        - node/install
+        - run:
+            command: node_modules/.bin/mocha test/
+            name: Test
+workflows:
+  node-tests:
+    jobs:
+      - unit_test
