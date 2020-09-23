@@ -6,10 +6,8 @@ jobs:
     executor: node/default
       steps:
         - checkout
-        - node/install
-        - run:
-            command: node_modules/.bin/mocha test/
-            name: Test
+        - run: npm install
+        - run: node_modules/.bin/mocha test/
 workflows:
   node-tests:
     jobs:
